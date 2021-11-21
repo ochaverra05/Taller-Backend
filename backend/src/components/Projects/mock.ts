@@ -1,5 +1,23 @@
 export const MockProjects = [
     {
+        "id":"12349as8df90",
+        "title":"TypescriptWeatherExample",
+        "description":"Proyecto Javascript el cual se personalizó para mostrar el mapa de google al buscar una ubicación.",
+        "version":"1.0.1",
+        "link":"https://github.com/ochaverra05/TypescriptWeatherExample",
+        "tag":"JavaScript, Typescript, SCSS, HTML",
+        "timestamp":765817712000
+    },
+    {
+        "id":"789asdfas89",
+        "title":"React Actividad",
+        "description":"Este proyecto es la asignación 4 de la asignatura Front End Frameworks, basado en React.",
+        "version":"1.0.0",
+        "link":"https://github.com/ochaverra05/react-actividad-4",
+        "tag":"Javascript, React",
+        "timestamp":765817712001
+    },
+    {
         "id": "12349as8df90",
         "title": "React",
         "description": "React es el Framework web basado en componentes de Facebook. Cuenta con una curva de aprendizaje corta y mucha flexibilidad",

@@ -11,7 +11,7 @@ import ApiClient, {
   UnprocessableEntity,
 } from "./api-client";
 
-import { removeAuthToken } from "../utils/auth";
+import { removeAuthToken, getAccessToken } from "../utils/auth";
 import { Project } from "../model/project";
 import { AboutMe } from "../model/aboutme";
 
@@ -62,14 +62,14 @@ const handleResponse = async <T>(func: () => Promise<T>): Promise<T> => {
 };
 
 // TODO: Uncomment to use it with auth
-// const getAuthorizationHeader = () => {
-//   const accessToken = getAccessToken();
-//   if (accessToken) {
-//     return "Bearer " + accessToken;
-//   } else {
-//     throw new Unauthorized();
-//   }
-// };
+ const getAuthorizationHeader = () => {
+   const accessToken = getAccessToken();
+   if (accessToken) {
+   return "Bearer " + accessToken;
+   } else {
+     throw new Unauthorized();
+   }
+ };
 
 export default class HttpApiClient implements ApiClient {
   baseUrl: string;
@@ -127,6 +127,36 @@ export default class HttpApiClient implements ApiClient {
       }
       return response.json();
     });
+
+    postProjects = (project: Project): Promise<Project> =>
+      handleResponse(async () => {
+        const body = {
+          id: project.id,
+          title: project.title,
+          description: project.description,
+          version: project.version,
+          link: project.link,
+          tag: project.tag,
+          timestamp: project.timestamp
+        }
+        const response = await fetch(
+          this.baseUrl + `/v1/projects/`,
+          {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+              Authorization: getAuthorizationHeader(),
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            }
+          }
+        );
+        
+        if (!response.ok) {
+          throw await createApiError(response);
+        }
+        return response.json();
+      });
 
     /** TODO: Create post for Proyect creation with authentication
      * Hint: Headers of the post should be

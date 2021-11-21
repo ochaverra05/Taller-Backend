@@ -4,10 +4,11 @@ import styled from "styled-components";
 import useApp from "../../hooks/useApp";
 import { themes } from "../../styles/ColorStyles";
 import { Caption, H1 } from "../../styles/TextStyles";
+import createApiClient from "../../api/api-client-factory";//POST OBJECT
+import { Project } from "../../model/project"; //POST MODEL
 
 const Admin = () => {
   const { t } = useTranslation();
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
@@ -25,12 +26,25 @@ const Admin = () => {
       return;
     }
     try {
+      
       console.log(title);
       console.log(description);
       console.log(tags);
       console.log(version);
-      console.log(link);
+      console.log(link);      
       // TODO: Create Proyect Object and post (HINT, there a generateUUID helper method)
+      const api = createApiClient();
+      var proyectObject: Project = { //POST VARIABLE WITH PROJECT MODEL AS TYPE
+        id: generateUUID(),
+        title: title,
+        description: description,
+        version: version,
+        link: link,
+        tag: tags,
+        timestamp: Date.now()
+      }
+      await api.postProjects(proyectObject);
+      
       addNotification("Posting...");
       resetForm();
       setSuccessMsg(t("admin.suc_network"));
@@ -43,11 +57,11 @@ const Admin = () => {
   }
 
   // TODO: Use it to generete uid
-  // function generateUUID(): string {
-  //   return Math.floor((1 + Math.random()) * 0x100000000000)
-  //   .toString(16)
-  //   .substring(1);
-  // }
+   function generateUUID(): string {
+     return Math.floor((1 + Math.random()) * 0x100000000000)
+     .toString(16)
+     .substring(1);
+   }
 
   function resetForm() {
     setErrorMsg("");

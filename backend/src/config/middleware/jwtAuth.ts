@@ -37,6 +37,5 @@ export function isAuthenticated(req: RequestWithUser, res: Response, next: NextF
             return next(new HttpError(HttpStatus.UNAUTHORIZED, http.STATUS_CODES[HttpStatus.UNAUTHORIZED]));
         }
     }
-
     return next(new HttpError(HttpStatus.BAD_REQUEST, 'No token provided'));
 }
