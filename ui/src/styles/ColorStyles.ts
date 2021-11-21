@@ -2,7 +2,7 @@ export const themes = {
   light: {
     text1: "black",
     text2: "rgba(0,0,0,0.7)",
-    primary: `#401587`,
+    primary: `#0000ff`,
     secondary: "#87FDDE",
     backgroundColor: `#f2f6ff`,
     backgroundForm: `#e0e7f7`,
@@ -10,9 +10,9 @@ export const themes = {
     warning: `#C22D2D`,
     loadingScreen: "rgba(0,0,0,0.7)",
     card: {
-      backgroundColor: `rgba(255, 255, 255, 0.6)`,
+      backgroundColor: `rgba(34, 49, 63, 1)`,
       boxShadow: `0px 50px 100px rgba(34, 79, 169, 0.3),
-      inset 0 0 0 0.5px rgba(255, 255, 255, 0.6)`,
+      inset 0 0 0 0.5px rgba(34, 49, 63, 1)`,
       backgroundColorFull: `rgba(255, 255, 255, 1)`,
     },
     cardHover: {
@@ -26,21 +26,21 @@ export const themes = {
       backgroundColor: "rgba(68, 66, 178, 0.1)",
     },
     modal: {
-      backgroundColor: `rgba(255, 255, 255, 0.6)`,
+      backgroundColor: `rgba(34, 49, 63, 1)`,
       boxShadow: `0px 50px 100px rgba(34, 79, 169, 0.3),
-      inset 0 0 0 0.5px rgba(255, 255, 255, 0.6)`,
+      inset 0 0 0 0.5px rgba(34, 49, 63, 1)`,
       backgroundColorFull: `rgba(255, 255, 255, 1)`,
     },
   },
   dark: {
     text1: "white",
     text2: "rgba(255,255,255,0.7)",
-    primary: `#22074F`,
+    primary: `#0000ff`,
     secondary: "#2EAE7B",
     backgroundColor: `#2B2830`,
     backgroundForm: `#282828`,
     card: {
-        backgroundColor: `rgba(15, 13, 17, 0.84)`,
+        backgroundColor: `rgba(34, 49, 63, 1)`,
         boxShadow: `0px 30px 60px rgba(0, 0, 0, 0.25),
         inset 0 0 0 0.5px rgba(255, 255, 255, 0.2)`,
         backgroundColorFull: `rgba(15, 14, 71, 1)`,
